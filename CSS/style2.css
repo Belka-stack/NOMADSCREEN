@@ -83,11 +83,12 @@ h1 {
 
 .navbar-mobile,
 .navbar-mobile-list a {
-  font-size: 4rem;
+  font-size: 1rem;
   font-weight: 800;
   color: black;
-  padding: 2rem;
+  padding: 0.5rem;
   text-decoration: none;
+  background-color: white;
 }
 
 .navbar-mobile {
@@ -238,17 +239,10 @@ h2 {
   padding-right: 5px;
 }
 
-@media screen and (max-width: 700px) {
-  .navbar-mobile,
-  .navbar-mobile-list a {
-    display: flex;
-    font-size: 1rem;
-    font-weight: 800;
-    color: black;
-    padding: 0.5rem;
-  }
+@media screen and (max-width: 768px) {
+
   main {
-    height: 2300px;
+    height: 2000px;
   }
   .part1 {
     display: flex;
