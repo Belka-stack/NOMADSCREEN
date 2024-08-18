@@ -42,21 +42,23 @@
             <a href="panier.html">
                 <ion-icon class="cart" name="cart"></ion-icon></a>
             </div>
-            <div class="navbar-mobile">
-                <ion-icon name="menu" class="i"></ion-icon>
-                    <div class="navbar-mobile-list">
-                        <a href="">Home</a>
-                <a href="">4Screens</a>
-                <a href="">3Screens</a>
-                <a href="">2Screens</a>
-                <a href="">Bag</a>
-                <a href="">About</a>
-                <a href="connection.html">
-                    <ion-icon class="person" name="person"></ion-icon></a>
-                <a href="panier.html">
-                    <ion-icon class="cart" name="cart"></ion-icon></a>
-                    </div>
-            </div>
+            <div id="mySidenav" class="sidenav">
+                <a id="closeBtn" href="#" class="close">×</a>
+                <ul>
+                  <li><a href="#">A propos</a></li>
+                  <li><a href="#">Nos services</a></li>
+                  <li><a href="#">Témoignages</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </div>
+              
+              <a href="#" id="openBtn">
+                <span class="burger-icon">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+              </a>
         </div>
     </div>
     </header>
@@ -123,16 +125,22 @@
     </section>
     </footer>
     <script>
-        // Je sélectionne et je stocke l'icône burger
+       var sidenav = document.getElementById("mySidenav");
+var openBtn = document.getElementById("openBtn");
+var closeBtn = document.getElementById("closeBtn");
 
-const icone = document.querySelector('.navbar-mobile .i');
-console.log(icone);
+openBtn.onclick = openNav;
+closeBtn.onclick = closeNav;
 
-// C'est le clic sur l'icône qui déclenche une action
-icone.addEventListener('click', function(){
-   
-    console.log("cliqué");
-})
+/* Set the width of the side navigation to 250px */
+function openNav() {
+  sidenav.classList.add("active");
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+  sidenav.classList.remove("active");
+}
     </script>
 </body>
 </html>
