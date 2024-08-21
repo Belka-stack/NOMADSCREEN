@@ -11,6 +11,7 @@ body {
   background-color: lightskyblue;
   display: flex;
   flex-direction: column;
+  /* position: relative; */
 }
 
 /* Style header */
@@ -45,19 +46,19 @@ h1 {
   font-weight: bold;
 }
 
-#navbar-desktop {
+.navbar-desktop {
   display: flex;
   align-items: center;
   width: 70%;
 }
-#navbar-desktop a {
+.navbar-desktop a {
   text-decoration: none;
   color: #000;
   padding: 3rem; /*espace entre chaque lient*/
   font-size: 25px;
   font-weight: bold;
 }
-#navbar-desktop a:hover {
+.navbar-desktop a:hover {
  color: lightskyblue;
 }
 
@@ -289,7 +290,7 @@ h2 {
     width: 100%;
   }
 
-  #navbar-desktop {
+  .navbar-desktop {
     display: none;
   }
   .burger-icon {
