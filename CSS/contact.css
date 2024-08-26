@@ -128,6 +128,12 @@
     align-items: center;
     width: 100%;
   }
+
+  form h1{
+    text-align: center;
+    font-weight: bold;
+    margin: 1rem;
+  }
   
   .contactForm input{
    padding: 1rem;
@@ -138,6 +144,11 @@
   .contactForm textarea{
     width: 25%;
     margin: 1rem;
+  }
+
+  button{
+    margin: 1rem;
+    font-weight: bold;
   }
   
   /******* FOOTER *******/
@@ -245,6 +256,7 @@
     }
     .logoTitre {
       width: 35%;
+      
     }
     .logoTitre img {
       width: 1.5rem;
