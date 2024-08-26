@@ -1,3 +1,5 @@
+/* Générale */
+
 * {
   margin: 0;
   padding: 0;
@@ -18,16 +20,18 @@ body {
 
   background-color: #ffde4d;
 }
-h1 {
-  font-size: 2rem;
-  margin: 5px;
-}
+
 .logoTitre {
   display: flex;
   margin-top: 20px;
 }
 .logoTitre img {
   width: 3rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 5px;
 }
 
 .menudesktop {
@@ -56,9 +60,8 @@ h1 {
   color: black;
 }
 
+/* Menu mobile */
 
-
-/* Sidenav menu */
 .menumobile {
   height: 100%;
   width: 250px;
@@ -70,11 +73,8 @@ h1 {
   padding-top: 60px;
   transition: left 0.5s ease;
   display: none;
-
 }
 
-
-/* Sidenav menu links */
 .menumobile a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
@@ -89,11 +89,9 @@ h1 {
 }
 
 .menumobile a:hover {
-  color:#6495ed;
+  color: #6495ed;
 }
 
-
-/* Active class */
 .menumobile.active {
   left: 0;
 }
@@ -106,6 +104,9 @@ h1 {
   font-size: 36px;
 }
 
+.burger-icon {
+  display: none;
+}
 /* Icône burger */
 .burger-icon span {
   display: block;
@@ -113,10 +114,6 @@ h1 {
   height: 5px;
   background-color: black;
   margin: 6px 0;
-}
-
-.burger-icon {
-  display: none;
 }
 
 /* MAIN */
@@ -182,7 +179,7 @@ main {
   display: flex;
   background: #ffde4d;
   margin-top: 8rem;
-  height: 48rem;
+  height: 40rem;
 }
 
 .map {
@@ -202,11 +199,12 @@ iframe {
   flex-direction: column;
   justify-content: center;
 }
-h2 {
-  font-weight: bold;
-}
+
 .adres p {
   font-size: 1.5rem;
+}
+h2 {
+  font-weight: bold;
 }
 
 /* Footer 3 */
@@ -236,15 +234,31 @@ h2 {
 /***** Media Querie *******/
 
 @media screen and (max-width: 768px) {
-  h1 {
-    font-size: 1rem;
+  .menuHeader {
+    height: 6rem;
+  }
+  .logoTitre {
+    width: 35%;
   }
   .logoTitre img {
     width: 1.5rem;
   }
+  h1 {
+    font-size: 1rem;
+  }
+  .menudesktop {
+    display: none;
+  }
+  .connect {
+    display: none;
+  }
 
-  .menumobile{
+  .menumobile {
     display: block;
+  }
+  .person,
+  .cart {
+    color: #ffde4d;
   }
 
   #openBtn {
@@ -265,26 +279,16 @@ h2 {
     font-size: 1rem;
   }
 
-  .logoTitre img {
-    width: 1.5rem;
-  }
-  .person, .cart{
-    color: #ffde4d;
+  .blockFooter2 {
+    height: 24rem;
   }
 
-  .logoTitre {
-    width: 35%;
+  iframe {
+    width: 60%;
+    height: auto;
   }
-
-  .menudesktop {
-    display: none;
-  }
-
-  .menuHeader {
-    height: 6rem;
-  }
-  .connect {
-    display: none;
+  .adres p {
+    font-size: 0.75rem;
   }
 
   h2 {
@@ -293,16 +297,5 @@ h2 {
 
   .copyright {
     font-size: 0.75rem;
-  }
-  .adres p {
-    font-size: 0.75rem;
-  }
-
-  iframe {
-    width: 60%;
-    height: auto;
-  }
-  .blockFooter2{
-    height: 24rem;
   }
 }
