@@ -17,7 +17,7 @@
     href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
     rel="stylesheet"
     />
-    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/about.css" />
 </head>
 <body>
     <div class="container-fluid">
@@ -75,30 +75,21 @@
         
         </div>
     
-        
 
     </header>
     <main>
-        <div class="blockImage">
-        
-            <img width="100%" src="../image/imgPageAccueil/hand.jpg" alt="" />
-        
-        </div>
+       <div class="blockAbout">
+        <div class="row ">
+            <div class="col-12 col-lg-6">
+                <img src="../image/imgAbout/image.jpg" alt="">
+            </div>
+            <div class="col-12 col-lg-6 contentOne">
+                <h1>Who we are?</h1>
+                <p>Nomadscreen is a young French start-up which has existed for one year and which aims to facilitate the mobility of people who use several screens, whether professionally or personally.</p>
+            </div>
 
-        <div class="row imgProduit">
-        <div class="col-12 col-md-6 col-lg-3">
-            <img src="../image/imgPageAccueil/img1.jpeg" alt="" />
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <img src="../image/imgPageAccueil/img2.jpg" alt="" />
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <img src="../image/imgPageAccueil/img3.jpeg" alt="" />
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <img src="../image/imgPageAccueil/img4.jpeg" alt="" />
-        </div>
-        </div>
+       </div>
     </main>
     <footer>
         <div class="row blockFooter1 ">

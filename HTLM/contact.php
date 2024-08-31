@@ -17,7 +17,7 @@
     href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
     rel="stylesheet"
     />
-    <link rel="stylesheet" href="../CSS/about.css" />
+    <link rel="stylesheet" href="../CSS/contact.css" />
 </head>
 <body>
     <div class="container-fluid">
@@ -34,7 +34,7 @@
             <a href="produit3.html">Two Screens</a>
             <a href="produit4.html">Backpack</a>
             <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+            <a href="contact.php">Contact</a>
         </div>
             <div class="col-2 connect">
             <a href="connection.html">
@@ -75,21 +75,27 @@
         
         </div>
     
+        
 
     </header>
     <main>
-       <div class="blockAbout">
-        <div class="row ">
-            <div class="col-12 col-lg-7">
-                <img src="../image/imgAbout/image.jpg" alt="">
-            </div>
-            <div class="col-12 col-lg-5 contentOne">
-                <h1>Who we are?</h1>
-                <p>Nomadscreen is a young French start-up which has existed for one year and which aims to facilitate the mobility of people who use several screens, whether professionally or personally.</p>
-            </div>
+        <form>
+            <h1>CONTACT-US</h1>
+            <div class="contactForm">
 
-        </div>
-       </div>
+            <input type="text" class="form-control" placeholder="First name">
+    
+        
+                <input type="text" class="form-control" placeholder="Last name">
+    
+             
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Your message"></textarea>
+
+                <button type="button" class="btn btn-dark">SUBMIT</button>
+            
+            </div>
+        </form>
     </main>
     <footer>
         <div class="row blockFooter1 ">

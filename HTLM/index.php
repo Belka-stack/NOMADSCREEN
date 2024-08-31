@@ -17,7 +17,7 @@
     href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
     rel="stylesheet"
     />
-    <link rel="stylesheet" href="../CSS/contact.css" />
+    <link rel="stylesheet" href="../CSS/style.css" />
 </head>
 <body>
     <div class="container-fluid">
@@ -33,8 +33,8 @@
             <a href="produit2.html">Three Screens</a>
             <a href="produit3.html">Two Screens</a>
             <a href="produit4.html">Backpack</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+            <a href="about.php">About</a>
+            <a href="contact.php">Contact</a>
         </div>
             <div class="col-2 connect">
             <a href="connection.html">
@@ -79,23 +79,26 @@
 
     </header>
     <main>
-        <form>
-            <h1>CONTACT-US</h1>
-            <div class="contactForm">
-
-            <input type="text" class="form-control" placeholder="First name">
-    
+        <div class="blockImage">
         
-                <input type="text" class="form-control" placeholder="Last name">
-    
-             
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Your message"></textarea>
+            <img width="100%" src="../image/imgPageAccueil/hand.jpg" alt="" />
+        
+        </div>
 
-                <button type="button" class="btn btn-dark">SUBMIT</button>
-            
-            </div>
-        </form>
+        <div class="row imgProduit">
+        <div class="col-12 col-md-6 col-lg-3">
+            <img src="../image/imgPageAccueil/img1.jpeg" alt="" />
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <img src="../image/imgPageAccueil/img2.jpg" alt="" />
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <img src="../image/imgPageAccueil/img3.jpeg" alt="" />
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <img src="../image/imgPageAccueil/img4.jpeg" alt="" />
+        </div>
+        </div>
     </main>
     <footer>
         <div class="row blockFooter1 ">
@@ -104,7 +107,7 @@
             <ion-icon class="icon1" name="airplane"></ion-icon>
             Worldwide Shipping
             </h2>
-            <p>We offer international shipping to your countries.</p>
+            <p>We offer international shipping to your countries and fast delivrery.</p>
         </div>
         <div class="col-12 col-md-6 col-lg-3">
             <h2>
@@ -112,7 +115,7 @@
             Best Quality
             </h2>
             <p>
-            The best screens are powerful enough to handle both work and play
+            The best screens are powerful enough to handle both work
             </p>
         </div>
         <div class="col-12 col-md-6 col-lg-3">
