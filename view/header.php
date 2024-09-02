@@ -5,11 +5,8 @@
             <h1>NOMADSCREEN</h1>
         </div>
         <div class="col-8 menudesktop">
-            <a href="produit1.html">Home</a>
-            <a href="produit1.html">Four Screens</a>
-            <a href="produit2.html">Three Screens</a>
-            <a href="produit3.html">Two Screens</a>
-            <a href="produit4.html">Backpack</a>
+            <a href="index.php">Home</a>
+            <a href="produits.php">Products</a>
             <a href="about.php">About</a>
             <a href="contact.php">Contact</a>
         </div>
@@ -25,15 +22,11 @@
         
         <div id="mobile" class="menumobile">
             <a id="closeBtn" href="#" class="close">×</a>
-            
-        <a href="#">Home</a></li>
-        <a href="#">4Screens</a>
-        <a href="#">3Screens</a>
-        <a href="#">2Screens</a>
-        <a href="#">Bag</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="connection.html">
+            <a href="index.php">Home</a>
+            <a href="produits.php">Products</a>
+            <a href="about.php">About</a>
+            <a href="contact.php">Contact</a>
+            <a href="connection.html">
                 <ion-icon class="person" name="person"></ion-icon
             ></a>
             <a href="panier.html">

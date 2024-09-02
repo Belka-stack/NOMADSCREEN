@@ -1,175 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=he, initial-scale=1.0" />
-    <title>Document</title>
-    <link
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=he, initial-scale=1.0" />
+  <title>Document</title>
+  <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-    crossorigin="anonymous"
-    />
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
+    crossorigin="anonymous" />
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
     href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
-    rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../CSS/contact.css" />
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../CSS/style.css" />
+  <style>
+    main {
+      margin-top: 8rem;
+    }
+
+    .contactForm {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    form h1 {
+      text-align: center;
+      margin: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .contactForm input {
+      padding: 1rem;
+      margin: 1rem;
+      width: 25%;
+
+    }
+
+    .contactForm textarea {
+      width: 25%;
+      margin: 1rem;
+    }
+
+
+
+    @media screen and (max-width: 768px) {
+      form h1 {
+        font-size: 1rem;
+      }
+
+      .contactForm input {
+        padding: 0.5rem;
+        width: 50%;
+      }
+
+      .contactForm textarea {
+        width: 50%;
+      }
+
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container-fluid">
-    <header>
-        <div class="row menuHeader">
-        <div class="col-2 logoTitre">
-            <a href="accueil.html"> <img src="../image/imgPageAccueil/logo.png" alt="image-logo" /></a>
-            <h1>NOMADSCREEN</h1>
-        </div>
-        <div class="col-8 menudesktop">
-            <a href="produit1.html">Home</a>
-            <a href="produit1.html">Four Screens</a>
-            <a href="produit2.html">Three Screens</a>
-            <a href="produit3.html">Two Screens</a>
-            <a href="produit4.html">Backpack</a>
-            <a href="about.html">About</a>
-            <a href="contact.php">Contact</a>
-        </div>
-            <div class="col-2 connect">
-            <a href="connection.html">
-            <ion-icon class="person" name="person"></ion-icon
-            ></a>
-            <a href="panier.html">
-            <ion-icon class="cart" name="cart"></ion-icon
-            ></a>
-        </div>
-            
-        
-        <div id="mobile" class="menumobile">
-            <a id="closeBtn" href="#" class="close">×</a>
-            
-        <a href="#">Home</a></li>
-        <a href="#">4Screens</a>
-        <a href="#">3Screens</a>
-        <a href="#">2Screens</a>
-        <a href="#">Bag</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="connection.html">
-                <ion-icon class="person" name="person"></ion-icon
-            ></a>
-            <a href="panier.html">
-                <ion-icon class="cart" name="cart"></ion-icon></a>
-        
-            
-    </div>
-        
-        <a href="#" id="openBtn">
-            <span class="burger-icon">
-            <span></span>
-            <span></span>
-            <span></span
-            </span>
-        </a>
-        
-        </div>
-    
-        
-
-    </header>
+  <div class="container-fluid">
+    <?php
+    include('../view/header.php');
+    ?>
     <main>
-        <form>
-            <h1>CONTACT-US</h1>
-            <div class="contactForm">
+      <?php
 
-            <input type="text" class="form-control" placeholder="First name">
-    
-        
-                <input type="text" class="form-control" placeholder="Last name">
-    
-             
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Your message"></textarea>
+      // Je meconnecte à la base de données
 
-                <button type="button" class="btn btn-dark">SUBMIT</button>
-            
-            </div>
-        </form>
+      $pdo = new PDO('mysql:host=localhost;dbname=nomadscreen', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+      // Test de connection à BD
+      // var_dump($pdo);
+
+      if ($_POST) {
+        // Je vérifie si le formulaire se soumet 
+        // echo 'test';
+
+        // Je gère le soucis d'apostrophe pour éviter les insertion SQL et les erreurs due aux apostrophes
+        $_POST['prenom'] = addslashes($_POST['prenom']);
+        $_POST['nom'] = addslashes($_POST['nom']);
+        $_POST['email'] = addslashes($_POST['email']);
+        $_POST['message'] = addslashes($_POST['message']);
+
+        $pdo->exec("INSERT INTO formulaire_contact (prenom, nom, email, message) VALUES ('$_POST[prenom]', '$_POST[nom]', '$_POST[email]', '$_POST[message]')");
+
+
+      }
+
+      
+
+      ?>
+      <form method="post">
+        <h1>CONTACT-US</h1>
+        <div class="contactForm">
+
+          <input type="text" class="form-control" name="prenom" placeholder="First name" required>
+
+
+          <input type="text" class="form-control" name="nom" placeholder="Last name" required>
+
+
+          <input type="email" class="form-control" name="email" placeholder="name@example.com" required>
+
+          <textarea class="form-control" name="message" rows="3" placeholder="Your message" required></textarea>
+
+          <input type="submit" class="btn btn-dark" value="Submit">
+
+        </div>
+      </form>
     </main>
-    <footer>
-        <div class="row blockFooter1 ">
-        <div class="col-12 col-md-6 col-lg-3">
-            <h2>
-            <ion-icon class="icon1" name="airplane"></ion-icon>
-            Worldwide Shipping
-            </h2>
-            <p>We offer international shipping to your countries.</p>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <h2>
-            <ion-icon class="icon2" name="thumbs-up"></ion-icon>
-            Best Quality
-            </h2>
-            <p>
-            The best screens are powerful enough to handle both work and play
-            </p>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <h2>
-            <ion-icon class="icon3" name="trophy"></ion-icon>
-            Best Offers
-            </h2>
-            <p>
-            It's an excellent monitor that isn't the absolute best at one
-            specific usage
-            </p>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <h2>
-            <ion-icon class="icon4" name="lock"></ion-icon>
-            Secure Payments
-            </h2>
-            <p>
-            It's an excellent monitor that isn't the absolute best at one
-            specific usage
-            </p>
-        </div>
-        </div>
-        <div class="row blockFooter2">
-        <div class="col-12 col-md-6 col-lg-6 map">
-            
-                <iframe width="600" height="500" src="https://maps.google.com/maps?q=2boulevardSébastopoleParis&t=&z=7&ie=UTF8&iwloc=&output=embed"
-        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-    
-        </div>
-        <div class="col-12 col-md-6 col-lg-6 adres">
-            <h2>NOMADSCREEN</h2>
-            <p><ion-icon name="pin"></ion-icon>2 Bd de Sébastopol
-                75004 Paris
-            </p>
-            <p><ion-icon name="call"></ion-icon>+33 1 25 38 42 57</p>
-            <p><ion-icon name="at"></ion-icon>contact@nomadscreen.com</p>
-
-        </div>
-        </div>
-        <div class="row blockFooter3">
-            <div class="col-12 col-md-6 col-lg-6 copyright">
-                <p>Copyright©2024-NOMADSCREEN</p>
-            </div>
-            <div class="col-12 col-md-6 col-lg-6  logoSociaux">
-                <a href="https://www.linkedin.com">
-                    <ion-icon class="linkedin" name="logo-linkedin"></ion-icon ></a>
-        
-                <a href="https://www.instagram.com"
-                    ><ion-icon class="instagram" name="logo-instagram"></ion-icon></a>
-        
-                <a href="https://www.facebook.com"
-                    ><ion-icon class="facebook" name="logo-facebook"></ion-icon></a>
-            </div>
-            </div>
-    </footer>
-    </div>
-    <script src="../JAVASCRIPT/script.js"></script>
+    <?php
+    include('../view/footer.php');
+    ?>
+  </div>
+  <script src="../JAVASCRIPT/script.js"></script>
 </body>
+
 </html>

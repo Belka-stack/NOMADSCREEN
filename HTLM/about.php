@@ -1,169 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=he, initial-scale=1.0" />
     <title>Document</title>
     <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-    crossorigin="anonymous"
-    />
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous" />
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-    href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
-    rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../CSS/about.css" />
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <style>
+        main {
+  margin-top: 8rem;
+}
+
+.blockAbout {
+  display: flex;
+}
+
+.blockAbout img {
+  width: 100%;
+}
+
+.contentOne{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+.contentOne h1{
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.contentOne p{
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .contentOne {
+    text-align: center;
+    padding-top: 3rem;
+  }
+  .contentOne h1 {
+    font-size: 1.5rem;
+  }
+  .contentOne p{
+  font-size: 1rem;
+}
+}
+    </style>
 </head>
+
 <body>
     <div class="container-fluid">
-    <header>
-        <div class="row menuHeader">
-        <div class="col-2 logoTitre">
-            <a href="accueil.html"> <img src="../image/imgPageAccueil/logo.png" alt="image-logo" /></a>
-            <h1>NOMADSCREEN</h1>
-        </div>
-        <div class="col-8 menudesktop">
-            <a href="produit1.html">Home</a>
-            <a href="produit1.html">Four Screens</a>
-            <a href="produit2.html">Three Screens</a>
-            <a href="produit3.html">Two Screens</a>
-            <a href="produit4.html">Backpack</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </div>
-            <div class="col-2 connect">
-            <a href="connection.html">
-            <ion-icon class="person" name="person"></ion-icon
-            ></a>
-            <a href="panier.html">
-            <ion-icon class="cart" name="cart"></ion-icon
-            ></a>
-        </div>
-            
-        
-        <div id="mobile" class="menumobile">
-            <a id="closeBtn" href="#" class="close">×</a>
-            
-        <a href="#">Home</a></li>
-        <a href="#">4Screens</a>
-        <a href="#">3Screens</a>
-        <a href="#">2Screens</a>
-        <a href="#">Bag</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="connection.html">
-                <ion-icon class="person" name="person"></ion-icon
-            ></a>
-            <a href="panier.html">
-                <ion-icon class="cart" name="cart"></ion-icon></a>
-        
-            
-    </div>
-        
-        <a href="#" id="openBtn">
-            <span class="burger-icon">
-            <span></span>
-            <span></span>
-            <span></span
-            </span>
-        </a>
-        
-        </div>
-    
+        <?php
+        include('../view/header.php');
+        ?>
+        <main>
+            <div class="blockAbout">
+                <div class="row ">
+                    <div class="col-12 col-lg-6">
+                        <img src="../image/imgAbout/image.jpg" alt="">
+                    </div>
+                    <div class="col-12 col-lg-6 contentOne">
+                        <h1>Who we are?</h1>
+                        <p>Nomadscreen is a young French start-up which has existed for one year and which aims to facilitate the mobility of people who use several screens, whether professionally or personally.</p>
+                    </div>
 
-    </header>
-    <main>
-       <div class="blockAbout">
-        <div class="row ">
-            <div class="col-12 col-lg-6">
-                <img src="../image/imgAbout/image.jpg" alt="">
+                </div>
             </div>
-            <div class="col-12 col-lg-6 contentOne">
-                <h1>Who we are?</h1>
-                <p>Nomadscreen is a young French start-up which has existed for one year and which aims to facilitate the mobility of people who use several screens, whether professionally or personally.</p>
-            </div>
+        </main>
+        <?php
 
-        </div>
-       </div>
-    </main>
-    <footer>
-        <div class="row blockFooter1 ">
-        <div class="col-12 col-md-6 col-lg-3">
-            <h2>
-            <ion-icon class="icon1" name="airplane"></ion-icon>
-            Worldwide Shipping
-            </h2>
-            <p>We offer international shipping to your countries.</p>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <h2>
-            <ion-icon class="icon2" name="thumbs-up"></ion-icon>
-            Best Quality
-            </h2>
-            <p>
-            The best screens are powerful enough to handle both work and play
-            </p>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <h2>
-            <ion-icon class="icon3" name="trophy"></ion-icon>
-            Best Offers
-            </h2>
-            <p>
-            It's an excellent monitor that isn't the absolute best at one
-            specific usage
-            </p>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-            <h2>
-            <ion-icon class="icon4" name="lock"></ion-icon>
-            Secure Payments
-            </h2>
-            <p>
-            It's an excellent monitor that isn't the absolute best at one
-            specific usage
-            </p>
-        </div>
-        </div>
-        <div class="row blockFooter2">
-        <div class="col-12 col-md-6 col-lg-6 map">
-            
-                <iframe width="600" height="500" src="https://maps.google.com/maps?q=2boulevardSébastopoleParis&t=&z=7&ie=UTF8&iwloc=&output=embed"
-        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-    
-        </div>
-        <div class="col-12 col-md-6 col-lg-6 adres">
-            <h2>NOMADSCREEN</h2>
-            <p><ion-icon name="pin"></ion-icon>2 Bd de Sébastopol
-                75004 Paris
-            </p>
-            <p><ion-icon name="call"></ion-icon>+33 1 25 38 42 57</p>
-            <p><ion-icon name="at"></ion-icon>contact@nomadscreen.com</p>
+        include('../view/footer.php')
 
-        </div>
-        </div>
-        <div class="row blockFooter3">
-            <div class="col-12 col-md-6 col-lg-6 copyright">
-                <p>Copyright©2024-NOMADSCREEN</p>
-            </div>
-            <div class="col-12 col-md-6 col-lg-6  logoSociaux">
-                <a href="https://www.linkedin.com">
-                    <ion-icon class="linkedin" name="logo-linkedin"></ion-icon ></a>
-        
-                <a href="https://www.instagram.com"
-                    ><ion-icon class="instagram" name="logo-instagram"></ion-icon></a>
-        
-                <a href="https://www.facebook.com"
-                    ><ion-icon class="facebook" name="logo-facebook"></ion-icon></a>
-            </div>
-            </div>
-    </footer>
+        ?>
     </div>
     <script src="../JAVASCRIPT/script.js"></script>
 </body>
+
 </html>

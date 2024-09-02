@@ -56,7 +56,7 @@
         </div>
         <div class="row blockFooter3">
             <div class="col-12 col-md-6 col-lg-6 copyright">
-                <p>Copyright©2024-NOMADSCREEN</p>
+                <p>Copyright©<?php echo date("Y") ?>-NOMADSCREEN</p>
             </div>
             <div class="col-12 col-md-6 col-lg-6  logoSociaux">
                 <a href="https://www.linkedin.com">
