@@ -20,33 +20,11 @@
     <style>
         main {
             margin-top: 8rem;
-            
-        }
-        .messageEnvoiForm{
-            display: flex;
-            text-align: center;
-            height: 18rem;
-        }
-        .messageEnvoiForm p {
-            padding-top: 2rem;
-            font-size: 1.5rem;
+
         }
 
-        .message1 {
-            background-color:#ffde4d ;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
 
-        @media screen and (max-width: 768px) {
-
-            .messageEnvoiForm p {
-            padding-top: 2rem;
-            font-size: 1rem;
-        }
-        }
+        @media screen and (max-width: 768px) {}
     </style>
 </head>
 
@@ -56,14 +34,30 @@
         include('../view/header.php');
         ?>
         <main>
-        <div class="row messageEnvoiForm">
-                <div class="col message1">
-                    <h3>THANKS</h3>
-                    <p>We have received your message. You will receive a response very soon.</p>
-                    <p>The Nomadscreen Team</p>
-    
+            <div class="row messageEnvoiForm">
+                <div class="col">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        
+                        <input type="submit" value="Log in">
+                    </form>
+
+                    <!-- <form method="post">
+                        <input type="email" name="email" placeholder="Adresse mail">
+                        <br><br>
+                        <input type="password" name="mdp" placeholder="Mot de passe">
+                        <br><br>
+                        <input type="submit" value="Se connecter">
+                    </form> -->
+
                 </div>
-        </div>
+            </div>
         </main>
         <?php
 

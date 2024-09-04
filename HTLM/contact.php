@@ -46,6 +46,13 @@
       width: 25%;
       margin: 1rem;
     }
+    .btnSubmit{
+      background:black;
+      color: hsl(49, 100%, 65%) ;
+      font-weight: bolder;
+      font-size: 1rem;
+
+    }
 
 
 
@@ -93,6 +100,15 @@
 
         $pdo->exec("INSERT INTO formulaire_contact (prenom, nom, email, message) VALUES ('$_POST[prenom]', '$_POST[nom]', '$_POST[email]', '$_POST[message]')");
 
+        // On affiche les messages de la base :
+         $r = $pdo->query('SELECT * FROM formulaire_contact');
+        while($formulaire_contact = $r->fetch(PDO::FETCH_ASSOC)) {
+          echo $formulaire_contact['prenom'] . ' : ' . $formulaire_contact['nom'] . $formulaire_contact['email'] . ' : ' . $formulaire_contact['message'] . '<br>';
+      }
+
+        header('Location: messageReceptForm.php'); 
+        exit();
+
 
       }
 
@@ -113,7 +129,7 @@
 
           <textarea class="form-control" name="message" rows="3" placeholder="Your message" required></textarea>
 
-          <input type="submit" class="btn btn-dark" value="Submit">
+          <input type="submit" class="btn btn-dark btnSubmit" value="Submit">
 
         </div>
       </form>
