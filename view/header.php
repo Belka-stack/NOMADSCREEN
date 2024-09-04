@@ -11,7 +11,7 @@
             <a href="contact.php">Contact</a>
         </div>
             <div class="col-2 connect">
-            <a href="connection.html">
+            <a href="connexion.php">
             <ion-icon class="person" name="person"></ion-icon
             ></a>
             <a href="panier.html">
@@ -26,7 +26,7 @@
             <a href="produits.php">Products</a>
             <a href="about.php">About</a>
             <a href="contact.php">Contact</a>
-            <a href="connection.html">
+            <a href="connexion.php">
                 <ion-icon class="person" name="person"></ion-icon
             ></a>
             <a href="panier.html">

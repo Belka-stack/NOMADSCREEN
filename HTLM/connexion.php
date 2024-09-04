@@ -20,11 +20,74 @@
     <style>
         main {
             margin-top: 8rem;
+        }
 
+        .connexionForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
         }
 
 
-        @media screen and (max-width: 768px) {}
+        form h1 {
+
+            margin: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .connexionForm .form-control {
+            padding: 0.5rem;
+            margin: 0.5rem;
+            width: 25%;
+
+        }
+
+        .form-control:focus {
+            outline: none;
+            /* Supprime l'outline par défaut */
+            outline: 3px solid hsl(49, 100%, 65%);
+            /* Change la couleur et la largeur de l'outline */
+
+        }
+
+        .login {
+
+            background: hsl(49, 100%, 65%);
+            color: black;
+            font-weight: bolder;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: solid hsl(49, 100%, 65%);
+            padding: 0.5rem;
+            margin-top: 1rem;
+            width: 10%;
+
+        }
+
+        .connexionForm a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            margin: 10px;
+
+        }
+        
+        @media screen and (max-width: 768px) {
+            form h1 {
+                font-size: 1rem;
+            }
+
+            .connexionForm .form-control {
+                padding: 0.5rem;
+                margin: 1rem;
+                width: 50%;
+            }
+            .login {
+                width: 25%;
+            }
+        }
     </style>
 </head>
 
@@ -34,30 +97,22 @@
         include('../view/header.php');
         ?>
         <main>
-            <div class="row messageEnvoiForm">
-                <div class="col">
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        </div>
-                        
-                        <input type="submit" value="Log in">
-                    </form>
 
-                    <!-- <form method="post">
-                        <input type="email" name="email" placeholder="Adresse mail">
-                        <br><br>
-                        <input type="password" name="mdp" placeholder="Mot de passe">
-                        <br><br>
-                        <input type="submit" value="Se connecter">
-                    </form> -->
+            <form method="post">
+
+                <div class="connexionForm">
+                    <h1>LOG IN</h1>
+
+                    <input type="email" class="form-control" name="email" placeholder="name@example.com" required>
+
+                    <input type="password" class="form-control" name="mdp" placeholder="Password" required>
+
+                    <input type="submit" class="login" value="SUBMIT">
+                    <a href="forgotPassword.php">Forgotten password ?</a>
+                    <a href="inscription.php">Register</a>
 
                 </div>
-            </div>
+            </form>
         </main>
         <?php
 

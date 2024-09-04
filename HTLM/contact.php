@@ -35,39 +35,56 @@
       font-size: 1.5rem;
     }
 
-    .contactForm input {
-      padding: 1rem;
-      margin: 1rem;
+    .contactForm .form-control {
+      padding: 0.5rem;
+      margin: 0.5rem;
       width: 25%;
 
     }
+
+    .form-control:focus {
+      outline: none; /* Supprime l'outline par défaut */
+      outline: 3px solid hsl(49, 100%, 65%);
+      /* Change la couleur et la largeur de l'outline */
+      
+    }
+
 
     .contactForm textarea {
       width: 25%;
       margin: 1rem;
     }
-    .btnSubmit{
-      background:black;
-      color: hsl(49, 100%, 65%) ;
+
+    .btnSubmit {
+      background: hsl(49, 100%, 65%);
+      color: black;
       font-weight: bolder;
       font-size: 1rem;
+      border-radius: 5px;
+      border: solid hsl(49, 100%, 65%) ;
+      padding: 0.5rem;
+      margin-top: 1rem;
+      width: 10%;
 
     }
-
-
-
+    
     @media screen and (max-width: 768px) {
       form h1 {
         font-size: 1rem;
       }
 
-      .contactForm input {
+      .contactForm .form-control {
         padding: 0.5rem;
-        width: 50%;
+        margin: 1rem;
+        width: 70%;
       }
 
       .contactForm textarea {
         width: 50%;
+      }
+
+      .btnSubmit{
+        width: 25%;
       }
 
     }
@@ -101,18 +118,16 @@
         $pdo->exec("INSERT INTO formulaire_contact (prenom, nom, email, message) VALUES ('$_POST[prenom]', '$_POST[nom]', '$_POST[email]', '$_POST[message]')");
 
         // On affiche les messages de la base :
-         $r = $pdo->query('SELECT * FROM formulaire_contact');
-        while($formulaire_contact = $r->fetch(PDO::FETCH_ASSOC)) {
+        $r = $pdo->query('SELECT * FROM formulaire_contact');
+        while ($formulaire_contact = $r->fetch(PDO::FETCH_ASSOC)) {
           echo $formulaire_contact['prenom'] . ' : ' . $formulaire_contact['nom'] . $formulaire_contact['email'] . ' : ' . $formulaire_contact['message'] . '<br>';
-      }
+        }
 
-        header('Location: messageReceptForm.php'); 
+        header('Location: messageReceptForm.php');
         exit();
-
-
       }
 
-      
+
 
       ?>
       <form method="post">
@@ -129,7 +144,7 @@
 
           <textarea class="form-control" name="message" rows="3" placeholder="Your message" required></textarea>
 
-          <input type="submit" class="btn btn-dark btnSubmit" value="Submit">
+          <input type="submit" class="btnSubmit" value="SUBMIT">
 
         </div>
       </form>
@@ -138,6 +153,7 @@
     include('../view/footer.php');
     ?>
   </div>
+
   <script src="../JAVASCRIPT/script.js"></script>
 </body>
 
