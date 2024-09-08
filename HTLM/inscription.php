@@ -103,13 +103,15 @@ if($_POST){
 
     }
 
-    .registreForm:focus {
+    .form-control:focus {
       outline: none;
       /* Supprime l'outline par défaut */
       outline: 3px solid hsl(49, 100%, 65%);
       /* Change la couleur et la largeur de l'outline */
 
     }
+
+    
 
     .registreSubmit {
       background: hsl(49, 100%, 65%);

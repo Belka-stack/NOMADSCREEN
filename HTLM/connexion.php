@@ -2,26 +2,24 @@
 
 include('init.php');
 // Si l'utilisteur est déjà connecté pour empêcher d'accéder à nouveau à connexion via l'url:
-if(isset($_SESSION['utilisateurs'])){
+if (isset($_SESSION['utilisateurs'])) {
     // Je redirige l'utilsateur sur l'index:
     header('location:profile.php');
 }
 // Vérifie si le formulaire a été posté
 
-if($_POST){
+if ($_POST) {
     //Je récupère les infos correspondant à l'adresse mail dans la BD:
     $adresseMail = $pdo->query("SELECT * FROM utilisateurs WHERE email = '$_POST[email]'");
 
     // Si j'ai yn résultat ou plus c'est que le compte existe :
-    if($adresseMail->rowCount() >= 1){
+    if ($adresseMail->rowCount() >= 1) {
         // Le compte existe : 
         // Je mets sous forme d'array lesinfos de l'utilisateur :
-            $users = $adresseMail->fetch(PDO::FETCH_ASSOC);
+        $users = $adresseMail->fetch(PDO::FETCH_ASSOC);
         // Je vérifie si mot de passe est correct
-        if(password_verify($_POST['password'], $users['password'])){
-            // Si le mot de passe est correct
+        if (password_verify($_POST['password'], $users['password'])) {
 
-            $content .= '<p>Mot de passe correct</p>';
             // On enregistre les infos de l'utilisateur dans la session sauf mot de passe
             $_SESSION['utilisateurs']['nom'] = $users['nom'];
             $_SESSION['utilisateurs']['prenom'] = $users['prenom'];
@@ -29,14 +27,13 @@ if($_POST){
 
             // On redirige l'utilisateur vers profile.php:
             header('location:profile.php');
-        }else {
-            $content .= '<p>Le mot de passe est incorrect.</p>';
+        } else {
+            $content .= '<div class="verificationPassword"><p class="wrongPassword">The password is incorrect.</p></div>';
         }
-
-    }else {
+    } else {
         // L'adresse mail n'existe pas:
 
-        $content .= '<p>Adresse mail inexistante.</p>';
+        $content .= '<div class="verificationEmail"><p class="wrongEmail">Email address does not exist.</p></div>';
     }
 }
 
@@ -118,7 +115,19 @@ if($_POST){
             margin: 10px;
 
         }
-        
+
+        .verificationPassword, .verificationEmail {
+            display: flex;
+            justify-content: center;
+        }
+
+        .wrongPassword, .wrongEmail {
+            background: hsl(49, 100%, 65%);
+            width: auto;
+            text-align: center;
+            width: auto;
+        }
+
         @media screen and (max-width: 768px) {
             form h1 {
                 font-size: 1rem;
@@ -129,6 +138,7 @@ if($_POST){
                 margin: 1rem;
                 width: 50%;
             }
+
             .login {
                 width: 25%;
             }
@@ -141,11 +151,11 @@ if($_POST){
     <div class="container-fluid">
         <?php
         include('../view/header.php');
-        echo $content;
         ?>
         <main>
 
             <form method="post">
+                <?php echo $content; ?>
 
                 <div class="connexionForm">
                     <h1>LOG IN</h1>

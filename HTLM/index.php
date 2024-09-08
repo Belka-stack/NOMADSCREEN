@@ -50,16 +50,16 @@
 
             <div class="row imgProduit">
                 <div class="col-12 col-md-6 col-lg-3">
-                    <img src="../image/imgPageAccueil/img1.jpeg" alt="" />
+                    <a href="produits.php"><img src="../image/imgPageAccueil/img1.jpeg" alt="Image four screens" /></a>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
-                    <img src="../image/imgPageAccueil/main-image-4.jpeg" alt="" />
+                    <a href="produits.php""><img src="../image/imgPageAccueil/main-image-4.jpeg" alt="Image three screens" /></a>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
-                    <img src="../image/imgPageAccueil/img3.jpeg" alt="" />
+                    <a href="produits.php""><img src="../image/imgPageAccueil/img3.jpeg" alt="Image two screens" /></a>
                 </div>
                 <div class="col-12 col-md-6 col-lg-3">
-                    <img src="../image/imgPageAccueil/img4.jpeg" alt="" />
+                    <a href="produits.php""><img src="../image/imgPageAccueil/img4.jpeg" alt="Image Babpack" /></a>
                 </div>
             </div>
         </main>
