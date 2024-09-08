@@ -1,3 +1,35 @@
+<?php
+include('init.php');
+
+// Si l'utilisateur est déjà connecté pour empêchet d'accéder à inscription via l'url à d'autres pages:
+if(isset($_SESSION['utilisateurs']))
+// Je redirige l'utilsateur vers l'espace client:
+
+header('location:profile.php');
+
+// On vérifie si le formualire a été posté
+
+if($_POST){
+  // Je vérifie que je récupère bien les infos
+
+  // print_r($_POST);
+
+  // Je défini  une variable pour  stocker les messges d'erreur:
+
+  $erreur = '';
+
+  // Je vérifie si le prenom est trop court ou trop long:
+    if(strlen($_POST['prenom']) < 2 || strlen($_POST['prenom']) > 20 || strlen($_POST['nom']) < 2 || strlen($_POST['nom']) > 20){
+      $erreur .= '<div class="textErreur"><p class="verifLongueur">Your first or last name is too short or too long. Three words minimum and twenty words maximum.</p></div>';
+  }
+
+  $content .= $erreur;
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,6 +95,18 @@
 
     }
 
+    .textErreur{
+      display: flex;
+      justify-content: center;
+    }
+
+    .verifLongueur{
+      background: hsl(49, 100%, 65%);
+      width: auto;
+      text-align: center;
+      width: auto;
+    }
+
 
 
     @media screen and (max-width: 768px) {
@@ -90,7 +134,9 @@
     include('../view/header.php');
     ?>
     <main>
+    
       <form method="post">
+      <?php echo $content; ?>
         <h1>REGISTER</h1>
         <div class="registreForm">
 
@@ -109,7 +155,6 @@
 
         </div>
       </form>
-
     </main>
     <?php
 
