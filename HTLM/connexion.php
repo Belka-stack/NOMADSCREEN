@@ -1,3 +1,48 @@
+<?php
+
+include('init.php');
+// Si l'utilisteur est déjà connecté pour empêcher d'accéder à nouveau à connexion via l'url:
+if(isset($_SESSION['utilisateurs'])){
+    // Je redirige l'utilsateur sur l'index:
+    header('location:profile.php');
+}
+// Vérifie si le formulaire a été posté
+
+if($_POST){
+    //Je récupère les infos correspondant à l'adresse mail dans la BD:
+    $adresseMail = $pdo->query("SELECT * FROM utilisateurs WHERE email = '$_POST[email]'");
+
+    // Si j'ai yn résultat ou plus c'est que le compte existe :
+    if($adresseMail->rowCount() >= 1){
+        // Le compte existe : 
+        // Je mets sous forme d'array lesinfos de l'utilisateur :
+            $users = $adresseMail->fetch(PDO::FETCH_ASSOC);
+        // Je vérifie si mot de passe est correct
+        if(password_verify($_POST['password'], $users['password'])){
+            // Si le mot de passe est correct
+
+            $content .= '<p>Mot de passe correct</p>';
+            // On enregistre les infos de l'utilisateur dans la session sauf mot de passe
+            $_SESSION['utilisateurs']['nom'] = $users['nom'];
+            $_SESSION['utilisateurs']['prenom'] = $users['prenom'];
+            $_SESSION['utilisateurs']['email'] = $users['email'];
+
+            // On redirige l'utilisateur vers profile.php:
+            header('location:profile.php');
+        }else {
+            $content .= '<p>Le mot de passe est incorrect.</p>';
+        }
+
+    }else {
+        // L'adresse mail n'existe pas:
+
+        $content .= '<p>Adresse mail inexistante.</p>';
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,9 +137,11 @@
 </head>
 
 <body>
+
     <div class="container-fluid">
         <?php
         include('../view/header.php');
+        echo $content;
         ?>
         <main>
 
@@ -105,7 +152,7 @@
 
                     <input type="email" class="form-control" name="email" placeholder="name@example.com" required>
 
-                    <input type="password" class="form-control" name="mdp" placeholder="Password" required>
+                    <input type="password" class="form-control" name="password" placeholder="Password" required>
 
                     <input type="submit" class="login" value="SUBMIT">
                     <a href="forgotPassword.php">Forgotten password ?</a>

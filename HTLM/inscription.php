@@ -23,6 +23,35 @@ if($_POST){
       $erreur .= '<div class="textErreur"><p class="verifLongueur">Your first or last name is too short or too long. Three words minimum and twenty words maximum.</p></div>';
   }
 
+  // Je vérifie si l'email n'existe pas déjà dans ma base quand la personne a validé le formaulaire
+
+  $verifMail = $pdo->query("SELECT * FROM utilisateurs WHERE email = '$_POST[email]'");
+  if($verifMail->rowCount() >= 1){
+    $erreur .= '<div class="verification"><p class="dejaInscrit">Your email address is already in use.</p></div>';
+  }
+
+  // Pour chaque champs,je gère les soucis d'apostrophe. $indice sont les names,$valeur est la valuer du champ name:
+
+  foreach($_POST as $indice => $valeur){
+    $_POST[$indice] = addslashes($valeur);
+  }
+
+  // Je hash le mot de passe avant d'insérer le mot de pass dans la BD:
+  $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+  // Si la variable erreur est vide:
+
+  if(empty($erreur)){
+    // Je fais ma requête d'insertion :
+    $pdo->exec("INSERT INTO utilisateurs (nom,prenom,email,password) VALUES ('$_POST[nom]', '$_POST[prenom]', '$_POST[email]', '$_POST[password]')
+    -- Dans les parenthèses pas besoin de mettre l'id_commentaire et il n'y a pas d'ordre. Il faut juste que l'odre dans value doit être respecté.
+    ");
+    $content .= '<div class="validationEnvoi"><p class="inscript">Registration validated!</p></div>';
+
+  }
+
+
+
   $content .= $erreur;
 }
 
@@ -95,18 +124,17 @@ if($_POST){
 
     }
 
-    .textErreur{
+    .textErreur, .validationEnvoi, .verification {
       display: flex;
       justify-content: center;
     }
 
-    .verifLongueur{
+    .verifLongueur, .inscript, .dejaInscrit{
       background: hsl(49, 100%, 65%);
       width: auto;
       text-align: center;
       width: auto;
     }
-
 
 
     @media screen and (max-width: 768px) {
