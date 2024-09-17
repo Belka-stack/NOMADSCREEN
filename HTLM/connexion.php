@@ -96,16 +96,19 @@ if ($_POST) {
 
         .login {
 
-            background: hsl(49, 100%, 65%);
-            color: black;
+            background: black;
+            color: hsl(49, 100%, 65%);
             font-weight: bolder;
             font-size: 1rem;
-            border-radius: 5px;
-            border: solid hsl(49, 100%, 65%);
+            border-radius: 10px;
             padding: 0.5rem;
             margin-top: 1rem;
             width: 10%;
 
+        }
+
+        .login:focus {
+            background-color: brown;
         }
 
         .connexionForm a {
